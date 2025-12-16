@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================
+   🎨 DESIGN SYSTEM – IMAGINK’
+   Tailwind CSS v4 (@theme)
+   =========================== */
+
+@theme {
+  --color-bleu-creatif: #4A148C;
+  --color-violet-technologie: #7B1FA2;
+  --color-vert-solution: #689F38;
+  --color-orange-vitalite: #FF9800;
+  --color-bleu-vif: #2196F3;
+
+  --color-background-light: #F7F8FC;
+  --color-background-dark: #121212;
+
+  --color-card-light: #FFFFFF;
+  --color-card-dark: #1E1E1E;
+
+  --color-text-light: #1A202C;
+  --color-text-dark: #F7F8FC;
+
+  --color-text-muted-light: #4A5568;
+  --color-text-muted-dark: #A0AEC0;
+
+  --color-border-light: #E2E8F0;
+  --color-border-dark: #2D3748;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
