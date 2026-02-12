@@ -1,83 +1,30 @@
-import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { siteContent } from '../data/content';
 
 const Testimonials = () => {
-  const testimonials = siteContent.testimonials;
-
   return (
-    <section style={{ padding: '5rem 0', backgroundColor: 'white' }}>
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '4rem' }}
-        >
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1rem' }}>
-            Ce que disent nos <span className="gradient-text">clients</span>
-          </h2>
-          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)' }}>
-            La satisfaction client au cœur de notre mission
-          </p>
-        </motion.div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2rem'
-        }}>
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              style={{
-                backgroundColor: 'var(--bg-light)',
-                padding: '2rem',
-                borderRadius: '20px',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-                transition: 'all 0.3s'
-              }}
-            >
-              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={20} fill="var(--orange-vitalite)" color="var(--orange-vitalite)" />
+    <section className="py-20 px-4 bg-gray-50">
+      <div className="container mx-auto max-w-6xl">
+        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-imagink-blue to-imagink-violet bg-clip-text text-transparent">
+          Témoignages Clients
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          {siteContent.testimonials.map((t) => (
+            <div key={t.id} className="p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="text-imagink-orange fill-imagink-orange" size={20} />
                 ))}
               </div>
-              <p style={{
-                fontSize: '1.05rem',
-                lineHeight: 1.7,
-                marginBottom: '1.5rem',
-                fontStyle: 'italic',
-                color: 'var(--text-dark)'
-              }}>
-                "{testimonial.quote}"
-              </p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <img
-                  src={testimonial.photo}
-                  alt={testimonial.name}
-                  style={{
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '50%',
-                    objectFit: 'cover'
-                  }}
-                />
+              <p className="text-gray-700 mb-6 italic">"{t.quote}"</p>
+              <div className="flex items-center gap-4">
+                <img src={t.photo} alt={t.name} className="w-12 h-12 rounded-full" />
                 <div>
-                  <h4 style={{ fontWeight: 600, marginBottom: '0.25rem' }}>
-                    {testimonial.name}
-                  </h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                    {testimonial.position}
-                  </p>
+                  <p className="font-bold text-gray-800">{t.name}</p>
+                  <p className="text-sm text-gray-600">{t.position}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

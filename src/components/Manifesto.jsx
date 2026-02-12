@@ -1,39 +1,15 @@
-import { motion } from 'framer-motion';
 import { siteContent } from '../data/content';
 
 const Manifesto = () => {
-  const { title, content } = siteContent.manifesto;
-
   return (
-    <section style={{ padding: '6rem 0', backgroundColor: '#FAFAFA' }}>
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            textAlign: 'center'
-          }}
-        >
-          <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
-            marginBottom: '2rem',
-            fontFamily: 'Georgia, serif'
-          }}>
-            {title}
-          </h2>
-          <p style={{
-            fontSize: '1.3rem',
-            lineHeight: 1.8,
-            color: 'var(--text-dark)',
-            fontFamily: 'Georgia, serif',
-            fontStyle: 'italic'
-          }}>
-            {content}
-          </p>
-        </motion.div>
+    <section className="py-20 px-4 bg-gray-50">
+      <div className="container mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-imagink-blue via-imagink-violet to-imagink-green bg-clip-text text-transparent">
+          {siteContent.manifesto.title}
+        </h2>
+        <p className="text-xl text-gray-700 leading-relaxed">
+          {siteContent.manifesto.content}
+        </p>
       </div>
     </section>
   );

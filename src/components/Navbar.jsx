@@ -10,6 +10,7 @@ const Navbar = () => {
     { name: 'Accueil', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'À Propos', path: '/about' },
+    { name: 'Portfolio', path: '/portfolio' },
     { name: 'Contact', path: '/contact' }
   ];
 
